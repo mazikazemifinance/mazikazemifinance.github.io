@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mazi Kazemi — Arizona State University</title>
+    <meta name="description" content="Maziar Kazemi, Assistant Professor of Finance at W.P. Carey School of Business, Arizona State University. Research in asset pricing, innovation, intangibles, and labor.">
+
+    <!-- FONTS: Using Libre Baskerville (serif) + Source Sans 3 (sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           THEME — Edit colors here
+           ============================================ */
+        :root {
+            --color-bg: #FAFAF7;
+            --color-text: #1a1a1a;
+            --color-text-secondary: #555;
+            --color-accent: #8B2500;
+            --color-accent-hover: #A63000;
+            --color-border: #d4d0c8;
+            --color-card-bg: #ffffff;
+            --color-tag-bg: #f0ece4;
+            --color-tag-text: #6b5e4f;
+
+            --font-display: 'Libre Baskerville', 'Georgia', serif;
+            --font-body: 'Source Sans 3', 'Helvetica Neue', sans-serif;
+
+            --max-width: 780px;
+            --section-gap: 3.5rem;
+        }
+
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        a:hover { color: var(--color-accent-hover); text-decoration: underline; }
+
+        /* ============================================
+           LAYOUT
+           ============================================ */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+            padding: 0.75rem 0;
+        }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav .nav-name {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-text);
+            text-decoration: none;
+        }
+        nav .nav-links { display: flex; gap: 1.5rem; }
+        nav .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--color-text-secondary);
+        }
+        nav .nav-links a:hover { color: var(--color-accent); text-decoration: none; }
+
+        /* Mobile nav toggle */
+        .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.25rem; }
+        .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--color-text); margin: 5px 0; transition: 0.2s; }
+
+        /* ============================================
+           HEADER / HERO
+           ============================================ */
+        .hero {
+            padding: 4rem 0 3rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .hero-inner {
+            display: flex;
+            gap: 2.5rem;
+            align-items: flex-start;
+        }
+        .hero-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 4px;
+            object-fit: cover;
+            flex-shrink: 0;
+            /* PLACEHOLDER: Replace src with your actual photo */
+            background: var(--color-border);
+        }
+        .hero-text { flex: 1; }
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.35rem;
+        }
+        .hero .subtitle {
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: var(--color-text-secondary);
+            margin-bottom: 1.2rem;
+        }
+        .hero .bio {
+            font-size: 0.95rem;
+            line-height: 1.75;
+            color: var(--color-text);
+            margin-bottom: 1.2rem;
+            max-width: 560px;
+        }
+        .hero .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.25rem;
+            font-size: 0.9rem;
+        }
+        .hero .links a { font-weight: 500; }
+
+        /* ============================================
+           SECTIONS
+           ============================================ */
+        section {
+            padding: var(--section-gap) 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+        section:last-of-type { border-bottom: none; }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        /* ============================================
+           PAPERS
+           ============================================ */
+        .paper {
+            margin-bottom: 1.75rem;
+        }
+        .paper:last-child { margin-bottom: 0; }
+
+        .paper-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.45;
+            margin-bottom: 0.2rem;
+        }
+        .paper-title a { color: var(--color-text); }
+        .paper-title a:hover { color: var(--color-accent); text-decoration: none; }
+
+        .paper-meta {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 0.4rem;
+        }
+        .paper-status {
+            display: inline-block;
+            background: var(--color-tag-bg);
+            color: var(--color-tag-text);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.15rem 0.55rem;
+            border-radius: 3px;
+            margin-left: 0.4rem;
+        }
+        .paper-status.rr { background: #e8f0e4; color: #3a6b2a; }
+
+        .paper-abstract {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--color-text-secondary);
+            margin-top: 0.5rem;
+        }
+        .paper-links {
+            margin-top: 0.45rem;
+            font-size: 0.85rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* ============================================
+           TEACHING
+           ============================================ */
+        .teaching-item {
+            margin-bottom: 1rem;
+        }
+        .teaching-item .course-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .teaching-item .course-detail {
+            font-size: 0.88rem;
+            color: var(--color-text-secondary);
+        }
+
+        /* ============================================
+           CV / TIMELINE ITEMS
+           ============================================ */
+        .timeline-item {
+            display: flex;
+            gap: 1.25rem;
+            margin-bottom: 0.9rem;
+            font-size: 0.92rem;
+        }
+        .timeline-item .year {
+            flex-shrink: 0;
+            width: 100px;
+            color: var(--color-text-secondary);
+            font-weight: 400;
+        }
+        .timeline-item .detail { flex: 1; }
+        .timeline-item .detail strong { font-weight: 600; }
+
+        /* ============================================
+           PRESENTATIONS — compact list
+           ============================================ */
+        .pres-year {
+            margin-bottom: 1rem;
+        }
+        .pres-year .year-label {
+            font-weight: 600;
+            font-size: 0.92rem;
+            margin-bottom: 0.2rem;
+        }
+        .pres-year .venues {
+            font-size: 0.88rem;
+            color: var(--color-text-secondary);
+            line-height: 1.65;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--color-text-secondary);
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 640px) {
+            .hero-inner { flex-direction: column; gap: 1.5rem; }
+            .hero-photo { width: 120px; height: 120px; }
+            .hero h1 { font-size: 1.7rem; }
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--color-bg);
+                border-bottom: 1px solid var(--color-border);
+                padding: 1rem 1.5rem;
+                gap: 0.75rem;
+            }
+            .nav-toggle { display: block; }
+            .timeline-item { flex-direction: column; gap: 0.15rem; }
+            .timeline-item .year { width: auto; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ==========================================
+     NAVIGATION
+     ========================================== -->
+<nav>
+    <div class="container">
+        <a href="#" class="nav-name">Mazi Kazemi</a>
+        <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links">
+            <a href="#research">Research</a>
+            <a href="#teaching">Teaching</a>
+            <a href="#presentations">Presentations</a>
+            <!-- UPDATE: Link to your CV PDF -->
+            <a href="kazemi_cv.pdf">CV</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ==========================================
+     HERO / ABOUT
+     ========================================== -->
+<header class="hero">
+    <div class="container">
+        <div class="hero-inner">
+            <!--
+                UPDATE: Replace the placeholder below with your photo.
+                Example: <img class="hero-photo" src="photo.jpg" alt="Mazi Kazemi">
+            -->
+            <img class="hero-photo" src="mmkazemi.png" alt="Mazi Kazemi">
+
+            <div class="hero-text">
+                <h1>Maziar Kazemi</h1>
+                <div class="subtitle">Assistant Professor of Finance · W.P. Carey School of Business · Arizona State University</div>
+
+                <p class="bio">
+                    I am an assistant professor of finance at Arizona State University within the W.P. Carey School of Business. I joined ASU after completing my PhD in Financial Economics at MIT Sloan. My research focuses on the interaction of financial markets, labor markets, and innovation. Outside of academia, I am an avid reader and writer of poetry and literary fiction.
+                </p>
+
+                <div class="links">
+                    <a href="mailto:mmkazemi@asu.edu">mmkazemi@asu.edu</a>
+                    <a href="https://scholar.google.com/citations?user=FeeIVXwAAAAJ&hl=en" target="_blank">Google Scholar</a>
+                    <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=2701588" target="_blank">SSRN</a>
+                    <a href="kazemi_cv.pdf">Download CV</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ==========================================
+     RESEARCH — WORKING PAPERS
+     ========================================== -->
+<section id="research">
+    <div class="container">
+        <h2 class="section-title">Working Papers</h2>
+
+        <!-- PAPER 1 -->
+        <div class="paper">
+            <div class="paper-title">
+                <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3988890">Intangible Investment, Displacement Risk, and the Value Discount</a>
+            </div>
+            <div class="paper-meta">
+                Solo-authored · Last updated 2026
+            </div>
+            <p class="paper-abstract">
+                <!-- UPDATE: Add full abstract here -->
+                Investment composition drives cross-sectional returns through displacement risk. The shift toward intangible investment explains the decline in the value premium.
+            </p>
+            <div class="paper-links">
+                <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3988890">SSRN</a>
+            </div>
+        </div>
+
+        <!-- PAPER 2 -->
+        <div class="paper">
+            <div class="paper-title">
+                <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4351116">Process Intangibles and Agency Frictions</a>
+                <span class="paper-status rr">R&R Journal of Finance</span>
+            </div>
+            <div class="paper-meta">
+                with Hui Chen, Ali Kakhbod, Hao Xing · Last updated 2025
+            </div>
+            <p class="paper-abstract">
+                <!-- UPDATE: Add full abstract here -->
+                Intangible investment creates agency conflicts via effort-inducing contracts. Process innovation is more connected to agency frictions and productivity than product innovation.
+            </p>
+            <div class="paper-links">
+                <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4351116">SSRN</a>
+            </div>
+        </div>
+
+        <!-- PAPER 3 -->
+        <div class="paper">
+            <div class="paper-title">
+                <a href="https://papers.ssrn.com/abstract=3934624">Identification of Factor Risk Premia</a>
+            </div>
+            <div class="paper-meta">
+                with Peter G. Hansen · Last updated 2025
+            </div>
+            <p class="paper-abstract">
+                <!-- UPDATE: Add full abstract here -->
+                Necessary and sufficient conditions for identifying individual factor risk premia under misspecification. Even if the vector of risk premia is not identified, a sub-vector may be.
+            </p>
+            <div class="paper-links">
+                <a href="https://papers.ssrn.com/abstract=3934624">SSRN</a>
+                <a href="https://www.mazikazemi.com/_files/archives/60810d_4dd293978fb14c72b087f6a6d73aa3a3.zip?dn=REPLICATION.zip">Replication Code</a>
+            </div>
+        </div>
+
+        <!-- PAPER 4 -->
+        <div class="paper">
+            <div class="paper-title">
+                <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3103295">Model-Free Factor Risk Premia</a>
+            </div>
+            <div class="paper-meta">
+                Solo-authored · Last updated 2025
+            </div>
+            <p class="paper-abstract">
+                <!-- UPDATE: Add full abstract here -->
+                KL-divergence-based SDF recovery to estimate factor premia without specifying a factor model.
+            </p>
+            <div class="paper-links">
+                <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3103295">SSRN</a>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             WORKS IN PROGRESS
+             ========================================== -->
+        <h2 class="section-title" style="margin-top: var(--section-gap);">Works in Progress</h2>
+
+        <div class="paper">
+            <div class="paper-title">Hedge Fund Activeness and Alpha</div>
+            <div class="paper-meta">with George Aragon, Xiaohui Yang</div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-title">The Price of Risk</div>
+            <div class="paper-meta">with Landon Ross, David Schreindorfer</div>
+        </div>
+
+        <div class="paper">
+            <div class="paper-title">Unspanned Risk</div>
+            <div class="paper-meta">with Foti Grigoris</div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     TEACHING
+     ========================================== -->
+<section id="teaching">
+    <div class="container">
+        <h2 class="section-title">Teaching</h2>
+
+        <!-- UPDATE: Adjust course number and semesters as needed -->
+        <div class="teaching-item">
+            <div class="course-name">Investments</div>
+            <div class="course-detail">Arizona State University · Undergraduate</div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     PRESENTATIONS
+     ========================================== -->
+<section id="presentations">
+    <div class="container">
+        <h2 class="section-title">Invited Presentations</h2>
+
+        <div class="pres-year">
+            <div class="year-label">2026</div>
+            <div class="venues">Eastern Finance; Frontiers of Factor Investing</div>
+        </div>
+
+        <div class="pres-year">
+            <div class="year-label">2025</div>
+            <div class="venues">ITAM Finance; Eastern Finance; Frontier Topics in Macro-Finance*</div>
+        </div>
+
+        <div class="pres-year">
+            <div class="year-label">2024</div>
+            <div class="venues">AFA; WFA; ASU–UoA Junior Conference</div>
+        </div>
+
+        <div class="pres-year">
+            <div class="year-label">2023</div>
+            <div class="venues">SGF; Tepper–LAEF Advances in Macro-Finance; SDU Conference; SIF*; NBER SI (Capital Markets and the Economy)</div>
+        </div>
+
+        <div class="pres-year">
+            <div class="year-label">2022</div>
+            <div class="venues">ASU–UA Junior Conference</div>
+        </div>
+
+        <div class="pres-year">
+            <div class="year-label">2021</div>
+            <div class="venues">SoFie Annual Conference*</div>
+        </div>
+
+        <p style="font-size: 0.82rem; color: var(--color-text-secondary); margin-top: 0.75rem;">
+            * Presentation by co-author
+        </p>
+    </div>
+</section>
+
+<!-- ==========================================
+     EDUCATION & BACKGROUND
+     ========================================== -->
+<section id="background">
+    <div class="container">
+        <h2 class="section-title">Education</h2>
+
+        <div class="timeline-item">
+            <div class="year">2015–2022</div>
+            <div class="detail"><strong>Ph.D., Financial Economics</strong> · MIT Sloan School of Management</div>
+        </div>
+        <div class="timeline-item">
+            <div class="year">2018</div>
+            <div class="detail"><strong>Masters of Finance</strong> · MIT Sloan School of Management</div>
+        </div>
+        <div class="timeline-item">
+            <div class="year">2009–2013</div>
+            <div class="detail"><strong>B.A., Economics and Mathematics</strong> · Vassar College</div>
+        </div>
+
+        <h2 class="section-title" style="margin-top: 2.5rem;">Prior Experience</h2>
+        <div class="timeline-item">
+            <div class="year">2013–2015</div>
+            <div class="detail"><strong>Research Assistant</strong> · Federal Reserve Board of Governors</div>
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================
+     FOOTER
+     ========================================== -->
+<footer>
+    <div class="container">
+        Maziar Kazemi · W.P. Carey School of Business · Arizona State University
+    </div>
+</footer>
+
+</body>
+</html>
