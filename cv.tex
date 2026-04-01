@@ -1,0 +1,168 @@
+\documentclass[11pt]{article}
+
+
+% ====== Drop-in CV helpers (paste after \documentclass) =====================
+% Packages (safe to include in most classes)
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[final]{microtype}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{tabularx}
+
+
+\usepackage{array}
+\usepackage{xcolor}
+\hypersetup{colorlinks=true, urlcolor=black, linkcolor=black}
+
+
+% Global spacing
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+
+% --- Section styling ---
+\newcommand{\sectionline}{\vspace{-7pt}\noindent\rule{\textwidth}{0.4pt}\vspace{6pt}}
+\newcommand{\cvsection}[1]{\vspace{10pt}\textbf{\large #1}\par\sectionline}
+
+
+% --- Tabular tuning for perfect alignment ---
+\setlength{\tabcolsep}{0pt}     % no extra horizontal padding inside tables
+\renewcommand{\arraystretch}{1.15}
+
+
+% Column types: fixed-width left column for dates; flexible right column
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+
+
+% --- Main entry macro -------------------------------------------------------
+% \cvitem{<years>}{<title>}{<affiliation/location>}{<notes (optional)>}
+% Tip: adjust 2.6cm below if your font changes wrap subtly (e.g., 2.4–2.8cm)
+\newcommand{\cvitem}[4]{%
+  \begin{tabularx}{\textwidth}{@{}L{2.6cm}Y@{}}%
+    \textbf{#1} & \textbf{#2} \\
+                & #3 \\
+    \multicolumn{2}{@{}l@{}}{#4} \\
+  \end{tabularx}\vspace{-5pt}%
+}
+
+
+% Tight bullet list for sections with items (talks, papers, etc.)
+\newenvironment{tightlist}{\begin{itemize}[left=1.2em,itemsep=2pt,topsep=2pt]}{\end{itemize}}
+
+
+% Optional: quick header helpers
+\newcommand{\name}[1]{\begin{center}\LARGE \textbf{#1}\end{center}}
+\newcommand{\contact}[1]{\begin{center}#1\end{center}\vspace{6pt}}
+% Load fancyhdr
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+
+% Clear existing header and footer settings
+\fancyhf{}
+
+
+% Add your name to the footer (centered)
+\fancyfoot[L]{Mazi Kazemi}
+
+
+% You can also add page numbers if you like
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+
+\begin{document}
+
+
+\name{Maziar Kazemi}
+\contact{W.P. Carey School of Business, Arizona State University • BAC 526 • 200 E Lemon Street, Tempe, AZ 85287 \\
+\href{mailto:mmkazemi@asu.edu}{mmkazemi@asu.edu} • \url{www.mazikazemi.com}}
+
+
+\cvsection{Academic Positions}
+\cvitem{2022–}{Assistant Professor of Finance}{Arizona State University}{}
+
+
+
+
+\cvsection{Education}
+\cvitem{2015–2022}{Ph.D., Financial Economics}{MIT Sloan School of Management}{}
+\cvitem{2018}{Masters of Finance}{MIT Sloan School of Management}{}
+\cvitem{2009–2013}{B.A., Economics and Mathematics}{Vassar College}{}
+
+
+\cvsection{Research Interests}
+Asset Pricing; Innovation and Intangibles; Labor and Finance; Investment Management
+
+
+\cvsection{Working Papers}
+\footnotesize{\textit{Dates indicate last public update of drafts}}
+\begin{tightlist}
+  \item \textbf{\href{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3988890}{Intangible Investment, Displacement Risk, and the Value Discount}}, 2026.
+  \item \textbf{\href{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4351116}{Process Intangibles and Agency Frictions}} (with Hui Chen, Ali Kakhbod, Hao Xing), 2025, R\&R \textit{Journal of Finance}.
+
+
+  \item \textbf{\href{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3934624}{Identification of Factor Risk Premia}} (with Peter G. Hansen), 2025.
+    \item \textbf{\href{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3103295}{Model-Free Factor Risk Premia}}, 2025.
+\end{tightlist}
+
+
+\cvsection{Selected Works in Progress}
+\begin{tightlist}
+  \item \textbf{When Does Active Trading Pay?} (with George Aragon, Xiaohui Yang).
+\end{tightlist}
+
+
+\vspace{2cm}
+\cvsection{Seminars \& Brownbags}
+\footnotesize{\textit{Indicates scheduled}. *Indicates brown bag}\\
+\textbf{2023:} UC Irvine*; University of Arizona. \\
+\textbf{2022:} Arizona State University; Temple University; The Ohio State University; University of Maryland; UT Dallas; McGill University; UMass Amherst. \\
+\textbf{2019:} UMass Amherst*.
+
+
+\cvsection{Invited Conference Presentations}
+\footnotesize{\textit{Indicates scheduled}. *Indicates presentation by co-author}\\
+\textbf{2026:} \textit{Eastern Finance}; \textit{Fontiers of Factor Investing}.\\
+\textbf{2025:} ITAM Finance; Eastern Finance; Frontier Topics in Macro-Finance*. \\
+\textbf{2024:} AFA; WFA; ASU–UoA Junior Conference. \\
+\textbf{2023:} SGF; Tepper–LAEF Advances in Macro-Finance; SDU Conference; SIF*; NBER SI (Capital Markets and the Economy). \\
+\textbf{2022:} ASU–UA Junior Conference. \\
+\textbf{2021:} SoFie Annual Conference*. \\
+\textbf{2018:} SoFie Summer School; Yale SOM Doctoral Finance Conference. \\
+\textbf{2015:} Georgetown CER Biennial Conference*.
+
+
+\cvsection{Conference Discussions}
+\textbf{2026:} Eastern Finance; ``Testing Model-Based Contributions in Misspecified Asset Pricing Models'' (Sarisoy)\\
+\textbf{2025:} NFA; “Data, Markups, and Asset Prices” (Corhay et al.); Eastern Finance; “Start-Up Financing, Entry and Innovation” (Parry) \\
+\textbf{2023:} SGF; “Non-Standard Errors” (Menkveld et al.); ASU–UA Junior; “Do Personal Taxes Drive Unrelated M\&A?” (Coles et al.); USC Macro-Finance; “Appropriated Growth” (Chen et al.).
+
+
+
+
+\cvsection{Professional Service}
+\textbf{Referee:} \textit{Journal of Financial Economics} (2022); \textit{Journal of Finance} (2025). \\
+\textbf{Grant Review:} Research Grants Council of Hong Kong (2022). \\
+\textbf{Program Committees:} MFA (2022, 2025); NFA (2023–2025); ASU Sonoran Conference (2026). \\
+\textbf{Memberships:} AEA; AFA.
+
+
+\cvsection{Advising}
+\textbf{Doctoral:} Rasoul Foroughfard (2025-)\\
+\textbf{Undergraduate:} Jocef Reed (2023-2024)
+
+
+\cvsection{Non-Academic Positions}
+\cvitem{2013–2015}{Research Assistant}{Federal Reserve Board of Governors}{}
+
+
+
+
+\end{document}
